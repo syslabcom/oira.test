@@ -26,7 +26,7 @@ setup(name='oira.test',
       zip_safe=False,
       extras_require={
         'test': [
-                 ],
+                ],
       },
       install_requires=[
         'setuptools',
