@@ -14,7 +14,7 @@
 +--------------+----------------------------------+-----------------------------------+--------------------+
 |Test Case     |Action                            |Argument                           |Argument            |
 +==============+==================================+===================================+====================+
-|Log in eu     |[Documentation]                   |Log in with valid credentials      |                    |
+|Log in        |[Documentation]                   |Log in with valid credentials      |                    |
 +--------------+----------------------------------+-----------------------------------+--------------------+
 |              |Go To                             |http://${SERVER}/eu/@@login        |                    |
 +--------------+----------------------------------+-----------------------------------+--------------------+
@@ -29,7 +29,7 @@
 |              |Wait Until Page Contains          |Welcome to the Online interactive  |                    |
 |              |                                  |Risk Assessment tools (OiRA)       |                    |
 +--------------+----------------------------------+-----------------------------------+--------------------+
-|Log in eu fail|[Documentation]                   |Log in fails when entering invalid |                    |
+|Log in fail   |[Documentation]                   |Log in fails when entering invalid |                    |
 |              |                                  |credentials                        |                    |
 +--------------+----------------------------------+-----------------------------------+--------------------+
 |              |Go To                             |http://${SERVER}/eu/@@login        |                    |
