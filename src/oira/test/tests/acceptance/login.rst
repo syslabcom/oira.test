@@ -26,8 +26,8 @@
 +--------------+----------------------------------+-----------------------------------+--------------------+
 |              |Click Button                      |id=login_submit                    |                    |
 +--------------+----------------------------------+-----------------------------------+--------------------+
-|              |Wait Until Page Contains          |Welcome to the Online interactive  |                    |
-|              |                                  |Risk Assessment tools (OiRA)       |                    |
+|              |Wait Until Page Contains          |Welcome                            |                    |
+|              |                                  |                                   |                    |
 +--------------+----------------------------------+-----------------------------------+--------------------+
 |Log in fail   |[Documentation]                   |Log in fails when entering invalid |                    |
 |              |                                  |credentials.                       |                    |
