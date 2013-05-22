@@ -84,14 +84,16 @@ def process_robot_output(robot_output):
             if status_tags != []:
                 status = status_tags[0].get("status")
                 if status == "PASS":
-                    status_class = "btn-success"
+                    btn_class = "btn-success"
+                    text_class = "text-success"
                 elif status == "FAIL":
-                    status_class = "btn-danger"
+                    btn_class = "btn-danger"
+                    text_class = "text-error"
 
             test_container.append(
                 E.BUTTON(
                     status,
-                    E.CLASS("btn "+status_class),
+                    E.CLASS("btn "+btn_class),
                     type="button",
                     id=test_id+"btn",
                 )
@@ -103,7 +105,7 @@ def process_robot_output(robot_output):
 
 
             messages = E.DIV(
-                E.CLASS("collapse"),
+                E.CLASS("collapse "+ text_class),
                 id = test_id,
             )
             for kw in test.xpath("./kw"):
