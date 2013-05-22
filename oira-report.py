@@ -68,6 +68,8 @@ def process_robot_output(robot_output):
 
         tests = suite.xpath(".//test")
         for i, test in enumerate(tests):
+            test_id = test.get("id", "")
+
             test_container = E.DIV(E.CLASS("span6"))
             test_container.append(E.H4(test.get("name", "")),)
 
@@ -75,19 +77,34 @@ def process_robot_output(robot_output):
                 doc.text for doc in test.xpath("./doc")
                 if doc.text is not None
             ])
-            test_container.append(E.P(doc),)
+            test_container.append(E.P(doc))
 
             status_tags = test.xpath("./status")
             status = ""
             if status_tags != []:
                 status = status_tags[0].get("status")
                 if status == "PASS":
-                    status_class = "alert-success"
+                    status_class = "btn-success"
                 elif status == "FAIL":
-                    status_class = "alert-important"
+                    status_class = "btn-danger"
+
+            test_container.append(
+                E.BUTTON(
+                    status,
+                    E.CLASS("btn "+status_class),
+                    type="button",
+                    id=test_id+"btn",
+                )
+            )
+
+            btn = test_container.get_element_by_id(test_id+"btn")
+            btn.set("data-target", "#"+test_id)
+            btn.set("data-toggle", "collapse")
+
 
             messages = E.DIV(
-                E.CLASS("alert "+status_class)
+                E.CLASS("collapse"),
+                id = test_id,
             )
             for kw in test.xpath("./kw"):
                 for msg in kw.xpath(".//msg"):
@@ -118,10 +135,15 @@ def process_robot_output(robot_output):
     # ScrollSpy might be nice
     # report.body.set("data-spy","scroll")
     # report.body.set("data-target", ".suite")
-    # report.append(
-    #     E.SCRIPT(
-    #         src="http//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"
-    #     ))
+    report.append(
+        E.SCRIPT(
+            src="http://code.jquery.com/jquery-1.9.1.min.js"
+        ))
+
+    report.append(
+        E.SCRIPT(
+            src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"
+        ))
 
 if __name__ == "__main__":
     robot_output = open("output.xml", "r")
