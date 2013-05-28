@@ -61,17 +61,20 @@ def format_msg(msg, status):
 content_area = report.get_element_by_id("content-area")
 def process_robot_output(robot_output):
     root = etree.parse(robot_output).getroot()
-    for suite in root.xpath("//suite"):
+    print "one time"
+    for suite in root.xpath("//suite[@source]"):
         suite_id = suite.get("id", "")
         suite_container = E.DIV(E.CLASS("suite span12"), id=suite_id)
         suite_container.append(E.H3(E.CLASS("span12"), suite.get("name", "")))
 
         tests = suite.xpath(".//test")
         for i, test in enumerate(tests):
-            test_id = "{0}-{1}".format(suite_id, test.get("id", ""))
+            test_id = "{0}".format(test.get("id", ""))
 
             test_container = E.DIV(E.CLASS("span6"))
-            test_container.append(E.H4(test.get("name", "")),)
+            test_name = test.get("name", "")
+
+            test_container.append(E.H4(test_name),)
 
             doc = "".join([
                 doc.text for doc in test.xpath("./doc")
