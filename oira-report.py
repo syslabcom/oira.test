@@ -62,13 +62,13 @@ content_area = report.get_element_by_id("content-area")
 def process_robot_output(robot_output):
     root = etree.parse(robot_output).getroot()
     for suite in root.xpath("//suite"):
-
-        suite_container = E.DIV(E.CLASS("suite span12"), id=suite.get("id", ""))
+        suite_id = suite.get("id", "")
+        suite_container = E.DIV(E.CLASS("suite span12"), id=suite_id)
         suite_container.append(E.H3(E.CLASS("span12"), suite.get("name", "")))
 
         tests = suite.xpath(".//test")
         for i, test in enumerate(tests):
-            test_id = test.get("id", "")
+            test_id = "{0}-{1}".format(suite_id, test.get("id", ""))
 
             test_container = E.DIV(E.CLASS("span6"))
             test_container.append(E.H4(test.get("name", "")),)
@@ -90,16 +90,17 @@ def process_robot_output(robot_output):
                     btn_class = "btn-danger"
                     text_class = "text-error"
 
+            btn_id = test_id+"-btn"
             test_container.append(
                 E.BUTTON(
                     status,
                     E.CLASS("btn "+btn_class),
                     type="button",
-                    id=test_id+"btn",
+                    id=btn_id,
                 )
             )
 
-            btn = test_container.get_element_by_id(test_id+"btn")
+            btn = test_container.get_element_by_id(btn_id)
             btn.set("data-target", "#"+test_id)
             btn.set("data-toggle", "collapse")
 
