@@ -91,7 +91,7 @@ Test /cy hairdressers button names
     Click Button    next
     Submit Form
     Submit Form
-    Click Link    Αναφορά
+    Click Link    Έκθεση
     Click Button    next
     Location Should Contain    /report/company
     Wait Until Page Contains    Παράκαμψη βήματος
