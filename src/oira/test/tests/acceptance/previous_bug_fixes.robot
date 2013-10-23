@@ -181,7 +181,7 @@ Test help headings
     Go To    http://${SERVER}/bg/help?set_language=bg
     Wait Until Page Contains    Помощ
     Wait Until Page Contains    Въведение
-    Wait Until Page Contains    Удостоверяване
+    Wait Until Page Contains    Регистрация
     Wait Until Page Contains    Сесии
     Wait Until Page Contains    Подготовка
     Wait Until Page Contains    Определяне
