@@ -380,12 +380,13 @@ Test in /cy button settings
     Click Link    Ρυθμίσεις
     Location Should Be    http://${SERVER}/cy/account-settings
 
-Test privacy link footer
-    [Documentation]    (support #4304) testing for the privacy link in the footer (for the client), this test only fails because the link opens in a new window
-    [Tags]    fixme
-    Go To    http://${SERVER}/eu
-    Click Link    Privacy
-    Location Should Be    http://${SERVER}/terms-and-conditions
+## The link opens in a new tab, if it were possible to open in a new window instead
+## the Select Window keyword should work
+# Test privacy link footer
+#     [Documentation]    (support #4304) testing for the privacy link in the footer (for the client), this test only fails because the link opens in a new window
+#     Go To    http://${SERVER}/eu
+#     Click Link    Privacy
+#     Location Should Be http://${SERVER}/terms-and-conditions
 
 Test legal references
     [Documentation]    (support #6640) Legal references have disappeared from the evaluation and action plan. ? also needed for actionplan/1/1/1
