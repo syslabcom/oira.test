@@ -182,17 +182,17 @@ Test help headings
     Wait Until Page Contains    Помощ
     Wait Until Page Contains    Въведение
     Wait Until Page Contains    Регистрация
-    Wait Until Page Contains    Сесии
+    Wait Until Page Contains    Как Вие да извършите оценка на риска
     Wait Until Page Contains    Подготовка
     Wait Until Page Contains    Определяне
     Wait Until Page Contains    Оценяване
     Wait Until Page Contains    План за действие
     Wait Until Page Contains    Доклад
-    Wait Until Page Contains    Последни думи
+    Wait Until Page Contains    Какво се случва след това?
     Go To    http://${SERVER}/es/help?set_language=ca
     Wait Until Page Contains    Ajuda
     Wait Until Page Contains    Introducció
-    Wait Until Page Contains    Autenticació
+    Wait Until Page Contains    Registrar-se
     Wait Until Page Contains    Sessions
     Wait Until Page Contains    Preparació
     Wait Until Page Contains    Identificació
