@@ -308,14 +308,14 @@ Test help headings sk
     Go To    http://${SERVER}/sk/help?set_language=sk
     Wait Until Page Contains    Pomocník
     Wait Until Page Contains    Úvod
-    Wait Until Page Contains    Overovanie
+    Wait Until Page Contains    Registrácia
     Wait Until Page Contains    Stretnutia
     Wait Until Page Contains    Príprava
     Wait Until Page Contains    Identifikácia
     Wait Until Page Contains    Vyhodnotenie
     Wait Until Page Contains    Akčný plán
     Wait Until Page Contains    Správa
-    Wait Until Page Contains    Záverečné slová
+    Wait Until Page Contains    Čo sa bude diať ďalej?
 Test help headings sl
     Go To    http://${SERVER}/si/help?set_language=sl
     Wait Until Page Contains    Pomoč
@@ -409,7 +409,7 @@ Test legal references
     Click Button    next
     Submit Form
     Go To    http://${SERVER}/fr/transportroutier/transporoutier-2-parametres/actionplan/1/1/1
-    Wait Until Page Contains    Références juridiques et politiques
+    Wait Until Page Contains    Références juridiques et techniques
     Click Link    Voir
     Wait Until Page Contains    Le Code du travail précise que l'employeur prend toutes les mesures
 
