@@ -5,6 +5,7 @@ Resource          secrets.robot
 *** Variable ***
 ${SERVER}         localhost:4080/Plone2/client
 ${BROWSER}        chrome
+${PROTOCOL}       https
 ${INVALID_USER_NAME}    null_user@syslab.com
 ${INVALID_USER_PASS}    nullpassword
 ${DEMO_SESSION_TOOLID}    demo/demo-garage-holder

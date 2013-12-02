@@ -7,58 +7,58 @@ Resource          resource/keywords.robot
 *** Test Case ***
 Language tests
     [Documentation]    testing of OiRA multiple European languages. content "Ajouter" im Css-Style - testbar wie?
-    Go To    http://${SERVER}/eu
+    Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
-    Go To    http://${SERVER}/cy/hairdressers/cyprus_hairdressers_el
+    Go To    ${PROTOCOL}://${SERVER}/cy/hairdressers/cyprus_hairdressers_el
     Click Button    next
     Wait Until Page Contains    Βοήθεια
     Wait Until Page Contains    Αξιολόγηση
     Wait Until Page Contains    Κύπρος: Κουρεία - Κομμωτήρια
     Wait Until Page Contains    Η εκτίμηση του κινδύνου δεν είναι περίπλοκη
-    Go To    http://${SERVER}/cy/civil-service/demosia-dioikese
+    Go To    ${PROTOCOL}://${SERVER}/cy/civil-service/demosia-dioikese
     Click Button    next
     Wait Until Page Contains    Βοήθεια
     Wait Until Page Contains    Αξιολόγηση
     Wait Until Page Contains    Εργασίες Γραφείου - Δημόσια Διοίκηση
     Wait Until Page Contains    Μια αδιάφορη
     Wait Until Page Contains    Σχετικά
-    Go To    http://${SERVER}
-    Go To    http://${SERVER}/fr/transportroutier/transporoutier-2-parametres
+    Go To    ${PROTOCOL}://${SERVER}
+    Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres
     Click Button    next
     Wait Until Page Contains    Aide
     Wait Until Page Contains    Estimation
     Wait Until Page Contains    Transport routier
     Wait Until Page Contains    L'évaluation des risques professionnels (EvRP)
-    Go To    http://${SERVER}
-    Go To    http://${SERVER}/eu/leather-tanning/leather-tanning-draft-risk-assessment-tool
+    Go To    ${PROTOCOL}://${SERVER}
+    Go To    ${PROTOCOL}://${SERVER}/eu/leather-tanning/leather-tanning-draft-risk-assessment-tool
     Click Button    next
     Wait Until Page Contains    Help
     Wait Until Page Contains    Evaluation
     Wait Until Page Contains    Leather & Tanning
     Wait Until Page Contains    Goal of the risk assessment tool
-    Go To    http://${SERVER}
+    Go To    ${PROTOCOL}://${SERVER}
     # Language test /fr    [Documentation]    (support #6714 bzw. #5932) testing of OiRA languages /fr !WARN wanted text-version of the comments unclear.
     # [Tags]    fixme
-    # Go To    http://${SERVER}/eu
+    # Go To    ${PROTOCOL}://${SERVER}/eu
     # Log in as user    ${USER_NAME}    ${USER_PASS}
-    # Go To    http://${SERVER}/fr?set_language=fr
+    # Go To    ${PROTOCOL}://${SERVER}/fr?set_language=fr
     # Wait Until Page Contains    Outil d'évaluation
     # Wait Until Page Contains    des risques en ligne
     # Click Button    next
     # Click Button    css=button[type=submit]
-    # Go To    http://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification/1
-    # Go To    http://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification/1/1/1
+    # Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification/1
+    # Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification/1/1/1
     # Wait Until Page Contains    xpath=//textarea[@placeholder="Vous pouvez écrire ici tout commentaire se rapportant à cette question. Vous retrouverez ce commentaire dans le plan d'action."]
-    # Go To    http://${SERVER}/fr/transportroutier/transporoutier-2-parametres/evaluation/1/1/1
+    # Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/evaluation/1/1/1
     # Wait Until Page Contains    Vous pouvez écrire ici tout commentaire se rapportant à cette question. Vous retrouverez ce commentaire dans le plan d'action.
-    # Go To    http://${SERVER}/fr/transportroutier/transporoutier-2-parametres/actionplan/1/1/1
+    # Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/actionplan/1/1/1
     #?Wait Until Page Contains    Vous pouvez écrire ici tout commentaire se rapportant à cette question.
     # Wait Until Page Contains    Vous pouvez écrire ici tout commentaire se rapportant à cette question.
-    # Go To    http://${SERVER}/fr/transportroutier/transporoutier-2-parametres/report
+    # Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/report
     #?Wait Until Page Contains    Vous pouvez écrire ici tout commentaire se rapportant à cette question.
     # Wait Until Page Contains    Vous pouvez écrire ici tout commentaire se rapportant à cette question.
     # Language test /fr Ajouter    Log Failing test    #5932 WARN
-    # Go To    http://${SERVER}/fr/transportroutier/transporoutier-2-parametres/actionplan/1/1/1
+    # Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/actionplan/1/1/1
     # Click Link    xpath=//p[contains(@class,'solutions')]
     # ${CURR_STYLE}=    Get Element Attribute    xpath=//p[contains(@class,'solutions')]/ol/li[1]@style
     # Log    ${CURR_STYLE}
@@ -68,26 +68,26 @@ Language tests
 
 Language test /fr button-name
     [Documentation]    (support #5932) testing of button-name "Accepter et continuer"
-    Go To    http://${SERVER}/fr/logout
-    Go To    http://${SERVER}/eu?set_language=en
+    Go To    ${PROTOCOL}://${SERVER}/fr/logout
+    Go To    ${PROTOCOL}://${SERVER}/eu?set_language=en
     Click link "register"
     Register form should open
     Fill out and send register form
     Terms of conditions should open
     Wait Until Page Contains    Agree and continue
-    Go To    http://${SERVER}/terms-and-conditions?set_language=fr
+    Go To    ${PROTOCOL}://${SERVER}/terms-and-conditions?set_language=fr
     Terms of conditions should open
     Wait Until Page Contains    Accepter et continuer
-    Go To    http://${SERVER}/eu/account-settings?set_language=en
-    Go To    http://${SERVER}/eu/account-delete
+    Go To    ${PROTOCOL}://${SERVER}/eu/account-settings?set_language=en
+    Go To    ${PROTOCOL}://${SERVER}/eu/account-delete
     Confirm delete account action
     Account should be deleted
 
 Test /cy hairdressers button names
-    [Documentation]    (support #6286 bzw. #6266) Test http://${SERVER}/cy/hairdressers/hairdressers-tool-demo/report/company bzw. http://${SERVER}/cy/hairdressers/cyprus_hairdressers_el/report/company Παράκαμψη βήματος, Αποθήκευση
-    Go To    http://${SERVER}/eu
+    [Documentation]    (support #6286 bzw. #6266) Test ${PROTOCOL}://${SERVER}/cy/hairdressers/hairdressers-tool-demo/report/company bzw. ${PROTOCOL}://${SERVER}/cy/hairdressers/cyprus_hairdressers_el/report/company Παράκαμψη βήματος, Αποθήκευση
+    Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
-    Go To    http://${SERVER}/cy?set_language=el
+    Go To    ${PROTOCOL}://${SERVER}/cy?set_language=el
     Click Button    next
     Submit Form
     Submit Form
@@ -98,68 +98,68 @@ Test /cy hairdressers button names
     Wait Until Page Contains    Αποθήκευση
 
 Test /fr buttons outside field
-    [Documentation]    (support #6266) http://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification/1/2/2 Test to make sure, the buttons are outside/above the field below
-    Go To    http://${SERVER}/eu
+    [Documentation]    (support #6266) ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification/1/2/2 Test to make sure, the buttons are outside/above the field below
+    Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
-    Go To    http://${SERVER}/fr?set_language=fr
+    Go To    ${PROTOCOL}://${SERVER}/fr?set_language=fr
     Click Button    next
     Submit Form
-    Go To    http://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification/1/2/2
+    Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification/1/2/2
     Wait Until Page Contains    Enregistrer et continuer
     ${FIRST_ELEM}=    Get Vertical Position    css=p.buttonBar
     ${SECOND_ELEM}=    Get Vertical Position    css=div.message.emphasis
     Should Be True    ${FIRST_ELEM} < ${SECOND_ELEM}
-    # Test /cy button layout    [Documentation]    Test http://${SERVER}/cy/hairdressers/cyprus_hairdressers_el/ (support #6266)
-    # Go To    http://${SERVER}/cy/hairdressers/cyprus_hairdressers_el/
+    # Test /cy button layout    [Documentation]    Test ${PROTOCOL}://${SERVER}/cy/hairdressers/cyprus_hairdressers_el/ (support #6266)
+    # Go To    ${PROTOCOL}://${SERVER}/cy/hairdressers/cyprus_hairdressers_el/
     #Element Should Contain    table.id=sessionList    td.class="actions span-5"
-    # Go To    http://${SERVER}/cy
+    # Go To    ${PROTOCOL}://${SERVER}/cy
     # Element Should Contain    table.id=sessionList    td.class="actions span-5"
     # ${ELEMENT}=    Get Element Attribute    table_id@class
     # Should Be True    ${ELEMENT}="actions span-5"
 
 Test /cy buttons outside field
-    [Documentation]    (support #6266) Test http://${SERVER}/cy/hairdressers/cyprus_hairdressers_el/identification/1/1
-    Go To    http://${SERVER}/eu
+    [Documentation]    (support #6266) Test ${PROTOCOL}://${SERVER}/cy/hairdressers/cyprus_hairdressers_el/identification/1/1
+    Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
-    Go To    http://${SERVER}/cy/hairdressers/cyprus_hairdressers_el?set_language=el
+    Go To    ${PROTOCOL}://${SERVER}/cy/hairdressers/cyprus_hairdressers_el?set_language=el
     Click Button    next
     Submit Form
-    Go To    http://${SERVER}/cy/hairdressers/cyprus_hairdressers_el/identification/1/1
+    Go To    ${PROTOCOL}://${SERVER}/cy/hairdressers/cyprus_hairdressers_el/identification/1/1
     Wait Until Page Contains    Αποθήκευση
     ${FIRST_ELEM}=    Get Vertical Position    css=p.buttonBar
     ${SECOND_ELEM}=    Get Vertical Position    css=div.message.emphasis
     Should Be True    ${FIRST_ELEM} < ${SECOND_ELEM}
-    # Test /pt buttons outside field    [Documentation]    Test http://${SERVER}/pt/cabeleireiro/preview/identification/1/1/3 (support #6266)
-    # Go To    http://${SERVER}/eu
+    # Test /pt buttons outside field    [Documentation]    Test ${PROTOCOL}://${SERVER}/pt/cabeleireiro/preview/identification/1/1/3 (support #6266)
+    # Go To    ${PROTOCOL}://${SERVER}/eu
     # Log in as user    ${USER_NAME}    ${USER_PASS}
-    # Go To    http://${SERVER}/pt/cabeleireiro/preview/identification/1/1/3?set_language=pt
+    # Go To    ${PROTOCOL}://${SERVER}/pt/cabeleireiro/preview/identification/1/1/3?set_language=pt
     # Click Button    next
     # Click Button    css=button[type=submit]
-    # Go To    http://${SERVER}/pt/cabeleireiro/preview/identification/1/1/3
+    # Go To    ${PROTOCOL}://${SERVER}/pt/cabeleireiro/preview/identification/1/1/3
     # Wait Until Page Contains    ...
     # ${FIRST_ELEM}=    Get Vertical Position    css=p.buttonBar
     # ${SECOND_ELEM}=    Get Vertical Position    css=div.message.emphasis
     # Should Be True    ${FIRST_ELEM} < ${SECOND_ELEM}
 
 Test /fr identification link
-    [Documentation]    (support #6204) Test http://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification
-    Go To    http://${SERVER}/eu
+    [Documentation]    (support #6204) Test ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification
+    Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
-    Go To    http://${SERVER}/fr/?set_language=fr
+    Go To    ${PROTOCOL}://${SERVER}/fr/?set_language=fr
     Click Button    next
     Submit Form
-    Go To    http://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification
-    # Go To    href="http://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification/report/download"
+    Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification
+    # Go To    href="${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification/report/download"
     Click Link    link=liste de tous les risques
 
 Test clickable subsections
     [Documentation]    (support #5187) testing of direct clickable subsection bullets when previous bullets and their questions are still unanswered.
-    Go To    http://${SERVER}/eu
+    Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
-    Go To    http://${SERVER}/fr/?set_language=fr
+    Go To    ${PROTOCOL}://${SERVER}/fr/?set_language=fr
     Click Button    next
     Submit Form
-    Go To    http://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification/1/2
+    Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification/1/2
     Click Link    xpath=//ol[@class='microns']/li[@title='1.2.1. Le conducteur descend-il de sa cabine en utilisant les marches ?']/a
     Wait Until Page Contains    Oui
     Radio Button Should Not Be Selected    answer
@@ -167,7 +167,7 @@ Test clickable subsections
 
 Test help headings en
     [Documentation]    (support #5648, #5170) !WARN, translations not yet updated: in the countries that show NO NUMBERS before the headings. /eu (English) /bg (Bulgarian), /ca (Catalan), /cs (Czech), /de (German), /el (Greek), /es (Spanish), /fr (French), /lt (Litauisch), /lv (Latvian), /nl-be (Flemish), /pt (Portugese), /sk (Slovakian), /sl (Slovenian), /sv (Swedish) !WARN, translations not yet updated: in the countries that show NO NUMBERS before the headings.
-    Go To    http://${SERVER}/eu/help?set_language=en
+    Go To    ${PROTOCOL}://${SERVER}/eu/help?set_language=en
     Wait Until Page Contains    Help
     Wait Until Page Contains    Introduction
     Wait Until Page Contains    Registration
@@ -179,7 +179,7 @@ Test help headings en
     Wait Until Page Contains    Report
     Wait Until Page Contains    What happens next?
 Test help headings bg
-    Go To    http://${SERVER}/bg/help?set_language=bg
+    Go To    ${PROTOCOL}://${SERVER}/bg/help?set_language=bg
     Wait Until Page Contains    Помощ
     Wait Until Page Contains    Въведение
     Wait Until Page Contains    Регистрация
@@ -191,7 +191,7 @@ Test help headings bg
     Wait Until Page Contains    Доклад
     Wait Until Page Contains    Какво се случва след това?
 Test help headings ca
-    Go To    http://${SERVER}/es/help?set_language=ca
+    Go To    ${PROTOCOL}://${SERVER}/es/help?set_language=ca
     Wait Until Page Contains    Ajuda
     Wait Until Page Contains    Introducció
     Wait Until Page Contains    Registrar-se
@@ -203,7 +203,7 @@ Test help headings ca
     Wait Until Page Contains    Informe
     Wait Until Page Contains    Què passa després?
 Test help headings cs
-    Go To    http://${SERVER}/cz/help?set_language=cs
+    Go To    ${PROTOCOL}://${SERVER}/cz/help?set_language=cs
     Wait Until Page Contains    Nápověda
     Wait Until Page Contains    Úvod
     Wait Until Page Contains    Registrace
@@ -215,7 +215,7 @@ Test help headings cs
     Wait Until Page Contains    Zpráva
     Wait Until Page Contains    Co bude následovat?
 Test help headings de
-    Go To    http://${SERVER}/de/help?set_language=de
+    Go To    ${PROTOCOL}://${SERVER}/de/help?set_language=de
     Wait Until Page Contains    Hilfe
     Wait Until Page Contains    Einführung
     Wait Until Page Contains    Authentifizierung
@@ -227,7 +227,7 @@ Test help headings de
     Wait Until Page Contains    Bericht
     Wait Until Page Contains    Eine Bemerkung zum Schluss
 Test help headings el
-    Go To    http://${SERVER}/cy/help?set_language=el
+    Go To    ${PROTOCOL}://${SERVER}/cy/help?set_language=el
     Wait Until Page Contains    Εισαγωγή
     Wait Until Page Contains    Εγγραφή
     Wait Until Page Contains    Εκπόνηση εκτίμησης κινδύνου
@@ -238,7 +238,7 @@ Test help headings el
     Wait Until Page Contains    Έκθεση
     Wait Until Page Contains    Επόμενα Βήματα
 Test help headings es
-    Go To    http://${SERVER}/es/help?set_language=es
+    Go To    ${PROTOCOL}://${SERVER}/es/help?set_language=es
     Wait Until Page Contains    Introducción
     Wait Until Page Contains    Registro
     Wait Until Page Contains    Realización de la evaluación de riesgos
@@ -249,7 +249,7 @@ Test help headings es
     Wait Until Page Contains    Informe
     Wait Until Page Contains    ¿Que pasa después?
 Test help headings fr
-    Go To    http://${SERVER}/fr/help?set_language=fr
+    Go To    ${PROTOCOL}://${SERVER}/fr/help?set_language=fr
     Wait Until Page Contains    Introduction
     Wait Until Page Contains    Inscription
     Wait Until Page Contains    Réaliser votre évaluation en ligne
@@ -260,7 +260,7 @@ Test help headings fr
     Wait Until Page Contains    Rapport
     Wait Until Page Contains    Et ensuite ?
 Test help headings lt
-    Go To    http://${SERVER}/lt/help?set_language=lt
+    Go To    ${PROTOCOL}://${SERVER}/lt/help?set_language=lt
     Wait Until Page Contains    Įvadas
     Wait Until Page Contains    Registracija
     Wait Until Page Contains    Atlikite rizikos vertinimą
@@ -271,7 +271,7 @@ Test help headings lt
     Wait Until Page Contains    Ataskaita
     Wait Until Page Contains    Kas toliau?
 Test help headings lv
-    Go To    http://${SERVER}/lv/help?set_language=lv
+    Go To    ${PROTOCOL}://${SERVER}/lv/help?set_language=lv
     Wait Until Page Contains    Ievads
     Wait Until Page Contains    Reģistrācija
     Wait Until Page Contains    Riska novērtējums
@@ -282,7 +282,7 @@ Test help headings lv
     Wait Until Page Contains    Pārskats
     Wait Until Page Contains    Kas notiks tālāk?
 Test help headings nl-be
-    Go To    http://${SERVER}/be/help?set_language=nl-be
+    Go To    ${PROTOCOL}://${SERVER}/be/help?set_language=nl-be
     # Wait Until Page Contains    ? (Help in nl-be)    ? (Help in nl-be)
     Wait Until Page Contains    Inleiding
     Wait Until Page Contains    Registratie
@@ -294,7 +294,7 @@ Test help headings nl-be
     Wait Until Page Contains    Rapport
     Wait Until Page Contains    Wat gebeurt er vervolgens?
 Test help headings pt
-    Go To    http://${SERVER}/pt/help?set_language=pt
+    Go To    ${PROTOCOL}://${SERVER}/pt/help?set_language=pt
     Wait Until Page Contains    Ajuda
     Wait Until Page Contains    Registo
     Wait Until Page Contains    Realizar a sua avaliação de riscos
@@ -305,7 +305,7 @@ Test help headings pt
     Wait Until Page Contains    Relatório
     Wait Until Page Contains    O que acontece a seguir?
 Test help headings sk
-    Go To    http://${SERVER}/sk/help?set_language=sk
+    Go To    ${PROTOCOL}://${SERVER}/sk/help?set_language=sk
     Wait Until Page Contains    Pomocník
     Wait Until Page Contains    Úvod
     Wait Until Page Contains    Registrácia
@@ -317,7 +317,7 @@ Test help headings sk
     Wait Until Page Contains    Správa
     Wait Until Page Contains    Čo sa bude diať ďalej?
 Test help headings sl
-    Go To    http://${SERVER}/si/help?set_language=sl
+    Go To    ${PROTOCOL}://${SERVER}/si/help?set_language=sl
     Wait Until Page Contains    Pomoč
     Wait Until Page Contains    Uvod
     Wait Until Page Contains    Registracija
@@ -329,7 +329,7 @@ Test help headings sl
     Wait Until Page Contains    Poročilo
     Wait Until Page Contains    Kaj se zgodi potem?
 Test help headings sv
-    Go To    http://${SERVER}/se/help?set_language=sv
+    Go To    ${PROTOCOL}://${SERVER}/se/help?set_language=sv
     Wait Until Page Contains    Hjälp
     Wait Until Page Contains    Introduktion
     Wait Until Page Contains    Autentisering
@@ -343,84 +343,84 @@ Test help headings sv
 
 Test hide report/company skipped
     [Documentation]    (support #4436) testing of .../report/company NOT showing up again (on the example page /fr) after having been skipped. With testing of button-name "Passer"
-    Go To    http://${SERVER}/eu
+    Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
-    Go To    http://${SERVER}/fr/?set_language=fr
+    Go To    ${PROTOCOL}://${SERVER}/fr/?set_language=fr
     Click Button    next
     Submit Form
-    Go To    http://${SERVER}/fr/transportroutier/transporoutier-2-parametres/report
+    Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/report
     Click Button    next
     Location Should Contain    report/company
     Wait Until Page Contains    Passer
     Click Button    form.buttons.skip
     Location Should Contain    report/view
-    Go To    http://${SERVER}/fr/transportroutier/transporoutier-2-parametres/report
+    Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/report
     Click Button    next
     Location Should Contain    report/view
 
 Test hide report/company answered
     [Documentation]    (support #4436) testing of .../report/company NOT showing up again (on the example page /fr) after having been answered.
-    Go To    http://${SERVER}/eu
+    Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
-    Go To    http://${SERVER}/fr/?set_language=fr
+    Go To    ${PROTOCOL}://${SERVER}/fr/?set_language=fr
     Click Button    next
     Wait Until Page Contains    Transport routier
     Submit Form
-    Go To    http://${SERVER}/fr/transportroutier/transporoutier-2-parametres/report
+    Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/report
     Click Button    next
     Location Should Contain    report/company
     Click Button    form.buttons.next
     Location Should Contain    report/view
-    Go To    http://${SERVER}/fr/transportroutier/transporoutier-2-parametres/report
+    Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/report
     Click Button    next
     Location Should Contain    report/view
 
 Test in /cy button settings
     [Documentation]    (support #4404) testing of /cy button settings
-    Go To    http://${SERVER}/eu
+    Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
-    Go To    http://${SERVER}/cy/?set_language=el
+    Go To    ${PROTOCOL}://${SERVER}/cy/?set_language=el
     Click Button    next
     Submit Form
-    Go To    http://${SERVER}/cy/civil-service/demosia-dioikese
+    Go To    ${PROTOCOL}://${SERVER}/cy/civil-service/demosia-dioikese
     Click Button    next
     Submit Form
-    Location Should Be    http://${SERVER}/cy/civil-service/demosia-dioikese/identification
+    Location Should Be    ${PROTOCOL}://${SERVER}/cy/civil-service/demosia-dioikese/identification
     Wait Until Page Contains    Ρυθμίσεις
     Wait Until Page Contains    Κατάσταση
     Click Link    Κατάσταση
-    Location Should Be    http://${SERVER}/cy/civil-service/demosia-dioikese/status
+    Location Should Be    ${PROTOCOL}://${SERVER}/cy/civil-service/demosia-dioikese/status
     Click Link    Ρυθμίσεις
-    Location Should Be    http://${SERVER}/cy/account-settings
+    Location Should Be    ${PROTOCOL}://${SERVER}/cy/account-settings
 
 ## The link opens in a new tab, if it were possible to open in a new window instead
 ## the Select Window keyword should work
 # Test privacy link footer
 #     [Documentation]    (support #4304) testing for the privacy link in the footer (for the client), this test only fails because the link opens in a new window
-#     Go To    http://${SERVER}/eu
+#     Go To    ${PROTOCOL}://${SERVER}/eu
 #     Click Link    Privacy
-#     Location Should Be http://${SERVER}/terms-and-conditions
+#     Location Should Be ${PROTOCOL}://${SERVER}/terms-and-conditions
 
 Test legal references
     [Documentation]    (support #6640) Legal references have disappeared from the evaluation and action plan. ? also needed for actionplan/1/1/1
-    Go To    http://${SERVER}/eu
+    Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
-    Go To    http://${SERVER}/fr/?set_language=fr
+    Go To    ${PROTOCOL}://${SERVER}/fr/?set_language=fr
     Click Button    next
     Submit Form
-    Go To    http://${SERVER}/fr/transportroutier/transporoutier-2-parametres/actionplan/1/1/1
+    Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/actionplan/1/1/1
     Wait Until Page Contains    Références juridiques et techniques
     Click Link    Voir
     Wait Until Page Contains    Le Code du travail précise que l'employeur prend toutes les mesures
 
 Test Mesure
     [Documentation]    (support #5809) translation issues (fr) on actionplan
-    Go To    http://${SERVER}/eu
+    Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
-    Go To    http://${SERVER}/fr/?set_language=fr
+    Go To    ${PROTOCOL}://${SERVER}/fr/?set_language=fr
     Click Button    next
     Submit Form
-    Go To    http://${SERVER}/fr/transportroutier/transporoutier-2-parametres/actionplan/1/1/1
+    Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/actionplan/1/1/1
     Wait Until Page Contains    Mesure
     Click Button    Ajouter une autre mesure
 
