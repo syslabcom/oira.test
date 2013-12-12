@@ -102,7 +102,7 @@ Test /fr buttons outside field
     Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
     Go To    ${PROTOCOL}://${SERVER}/fr?set_language=fr
-    Wait Until Element Is Visible    jquery=select.oira_sessions_select
+    # Wait Until Element Is Visible    jquery=select.oira_sessions_select
     Select From List By Value    jquery=select.oira_sessions_select    transportroutier/transporoutier-2-parametres
     Click Button    next
     Submit Form
@@ -148,7 +148,7 @@ Test /fr identification link
     Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
     Go To    ${PROTOCOL}://${SERVER}/fr/?set_language=fr
-    Wait Until Element Is Visible    jquery=select.oira_sessions_select
+    # Wait Until Element Is Visible    jquery=select.oira_sessions_select
     Select From List By Value    jquery=select.oira_sessions_select    transportroutier/transporoutier-2-parametres
     Click Button    next
     Submit Form
@@ -161,7 +161,7 @@ Test clickable subsections
     Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
     Go To    ${PROTOCOL}://${SERVER}/fr/?set_language=fr
-    Wait Until Element Is Visible    jquery=select.oira_sessions_select
+    # Wait Until Element Is Visible    jquery=select.oira_sessions_select
     Select From List By Value    jquery=select.oira_sessions_select    transportroutier/transporoutier-2-parametres
     Click Button    next
     Submit Form
@@ -352,7 +352,7 @@ Test hide report/company skipped
     Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
     Go To    ${PROTOCOL}://${SERVER}/fr/?set_language=fr
-    Wait Until Element Is Visible    jquery=select.oira_sessions_select
+    # Wait Until Element Is Visible    jquery=select.oira_sessions_select
     Select From List By Value    jquery=select.oira_sessions_select    transportroutier/transporoutier-2-parametres
     Click Button    next
     Submit Form
@@ -371,7 +371,7 @@ Test hide report/company answered
     Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
     Go To    ${PROTOCOL}://${SERVER}/fr/?set_language=fr
-    Wait Until Element Is Visible    jquery=select.oira_sessions_select
+    # Wait Until Element Is Visible    jquery=select.oira_sessions_select
     Select From List By Value    jquery=select.oira_sessions_select    transportroutier/transporoutier-2-parametres
     Click Button    next
     Wait Until Page Contains    Transport routier
@@ -416,7 +416,7 @@ Test legal references
     Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
     Go To    ${PROTOCOL}://${SERVER}/fr/?set_language=fr
-    Wait Until Element Is Visible    jquery=select.oira_sessions_select
+    # Wait Until Element Is Visible    jquery=select.oira_sessions_select
     Select From List By Value    jquery=select.oira_sessions_select    transportroutier/transporoutier-2-parametres
     Click Button    next
     Submit Form
@@ -430,7 +430,7 @@ Test Mesure
     Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
     Go To    ${PROTOCOL}://${SERVER}/fr/?set_language=fr
-    Wait Until Element Is Visible    jquery=select.oira_sessions_select
+    # Wait Until Element Is Visible    jquery=select.oira_sessions_select
     Select From List By Value    jquery=select.oira_sessions_select    transportroutier/transporoutier-2-parametres
     Click Button    next
     Submit Form
