@@ -89,7 +89,9 @@ Test /cy hairdressers button names
     Log in as user    ${USER_NAME}    ${USER_PASS}
     Go To    ${PROTOCOL}://${SERVER}/cy?set_language=el
     Click Button    next
+    Sleep  5s
     Submit Form
+    Sleep  5s
     Submit Form
     Click Link    Έκθεση
     Click Button    next
@@ -104,8 +106,11 @@ Test /fr buttons outside field
     Go To    ${PROTOCOL}://${SERVER}/fr?set_language=fr
     # Wait Until Element Is Visible    jquery=select.oira_sessions_select
     Select From List By Value    jquery=select.oira_sessions_select    transportroutier/transporoutier-2-parametres
+    Sleep  5s
     Click Button    next
+    Sleep  5s
     Submit Form
+    Sleep  5s
     Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification/1/2/2
     Wait Until Page Contains    Enregistrer et continuer
     ${FIRST_ELEM}=    Get Vertical Position    css=p.buttonBar
@@ -126,6 +131,7 @@ Test /cy buttons outside field
     Go To    ${PROTOCOL}://${SERVER}/cy/hairdressers/cyprus_hairdressers_el?set_language=el
     Click Button    next
     Submit Form
+    Sleep  5s
     Go To    ${PROTOCOL}://${SERVER}/cy/hairdressers/cyprus_hairdressers_el/identification/1/1
     Wait Until Page Contains    Αποθήκευση
     ${FIRST_ELEM}=    Get Vertical Position    css=p.buttonBar
@@ -150,9 +156,13 @@ Test /fr identification link
     Go To    ${PROTOCOL}://${SERVER}/fr/?set_language=fr
     # Wait Until Element Is Visible    jquery=select.oira_sessions_select
     Select From List By Value    jquery=select.oira_sessions_select    transportroutier/transporoutier-2-parametres
+    Sleep  5s
     Click Button    next
+    Sleep  5s
     Submit Form
+    Sleep  5s
     Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification
+    Sleep  5s
     # Go To    href="${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification/report/download"
     Click Link    link=liste de tous les risques
 
@@ -161,10 +171,14 @@ Test clickable subsections
     Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
     Go To    ${PROTOCOL}://${SERVER}/fr/?set_language=fr
+    # Debug
     # Wait Until Element Is Visible    jquery=select.oira_sessions_select
     Select From List By Value    jquery=select.oira_sessions_select    transportroutier/transporoutier-2-parametres
+    Sleep  5s
     Click Button    next
+    Sleep  5s
     Submit Form
+    Sleep  5s
     Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification/1/2
     Click Link    xpath=//ol[@class='microns']/li[@title='1.2.1. Le conducteur descend-il de sa cabine en utilisant les marches ?']/a
     Wait Until Page Contains    Oui
@@ -354,7 +368,9 @@ Test hide report/company skipped
     Go To    ${PROTOCOL}://${SERVER}/fr/?set_language=fr
     # Wait Until Element Is Visible    jquery=select.oira_sessions_select
     Select From List By Value    jquery=select.oira_sessions_select    transportroutier/transporoutier-2-parametres
+    Sleep  5s
     Click Button    next
+    Sleep  5s
     Submit Form
     Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/report
     Click Button    next
@@ -373,7 +389,9 @@ Test hide report/company answered
     Go To    ${PROTOCOL}://${SERVER}/fr/?set_language=fr
     # Wait Until Element Is Visible    jquery=select.oira_sessions_select
     Select From List By Value    jquery=select.oira_sessions_select    transportroutier/transporoutier-2-parametres
+    Sleep  5s
     Click Button    next
+    Sleep  5s
     Wait Until Page Contains    Transport routier
     Submit Form
     Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/report
@@ -393,7 +411,9 @@ Test in /cy button settings
     Click Button    next
     Submit Form
     Go To    ${PROTOCOL}://${SERVER}/cy/civil-service/demosia-dioikese
+    Sleep  5s
     Click Button    next
+    Sleep  5s
     Submit Form
     Location Should Be    ${PROTOCOL}://${SERVER}/cy/civil-service/demosia-dioikese/identification
     Wait Until Page Contains    Ρυθμίσεις
@@ -418,8 +438,11 @@ Test legal references
     Go To    ${PROTOCOL}://${SERVER}/fr/?set_language=fr
     # Wait Until Element Is Visible    jquery=select.oira_sessions_select
     Select From List By Value    jquery=select.oira_sessions_select    transportroutier/transporoutier-2-parametres
+    Sleep  5s
     Click Button    next
+    Sleep  5s
     Submit Form
+    Sleep  5s
     Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/actionplan/1/1/1
     Wait Until Page Contains    Références juridiques et techniques
     Click Link    Voir
@@ -432,8 +455,11 @@ Test Mesure
     Go To    ${PROTOCOL}://${SERVER}/fr/?set_language=fr
     # Wait Until Element Is Visible    jquery=select.oira_sessions_select
     Select From List By Value    jquery=select.oira_sessions_select    transportroutier/transporoutier-2-parametres
+    Sleep  5s
     Click Button    next
+    Sleep  5s
     Submit Form
+    Sleep  5s
     Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/actionplan/1/1/1
     Wait Until Page Contains    Mesure
     Click Button    Ajouter une autre mesure
