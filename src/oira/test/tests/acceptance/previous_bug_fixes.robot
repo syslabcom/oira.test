@@ -341,13 +341,13 @@ Test help headings sl
     Wait Until Page Contains    Pomoč
     Wait Until Page Contains    Uvod
     Wait Until Page Contains    Registracija
-    Wait Until Page Contains    Moje ocene
-    Wait Until Page Contains    Priprava
-    Wait Until Page Contains    Identifikacija
-    Wait Until Page Contains    Ovrednotenje
-    Wait Until Page Contains    Akcijski načrt
-    Wait Until Page Contains    Poročilo
-    Wait Until Page Contains    Kaj se zgodi potem?
+    Wait Until Page Contains    Ocenjevanje tveganja
+    Wait Until Page Contains    1. Priprava
+    Wait Until Page Contains    2. Identifikacija
+    Wait Until Page Contains    3. Ocena
+    Wait Until Page Contains    4. Načrt ukrepov
+    Wait Until Page Contains    5. Poročilo
+    Wait Until Page Contains    Kako naprej?
 Test help headings sv
     Go To    ${PROTOCOL}://${SERVER}/se/help?set_language=sv
     Wait Until Page Contains    Hjälp
