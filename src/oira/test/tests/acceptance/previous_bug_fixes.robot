@@ -341,7 +341,7 @@ Test help headings sl
     Wait Until Page Contains    Pomoč
     Wait Until Page Contains    Uvod
     Wait Until Page Contains    Registracija
-    Wait Until Page Contains    Seje
+    Wait Until Page Contains    Moje ocene
     Wait Until Page Contains    Priprava
     Wait Until Page Contains    Identifikacija
     Wait Until Page Contains    Ovrednotenje
