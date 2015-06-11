@@ -1,6 +1,7 @@
 *** Setting ***
 Library           Selenium2Library    10 seconds
 Resource          secrets.robot
+Library           DebugLibrary
 
 *** Variable ***
 ${SERVER}         localhost:4080/Plone2/client
