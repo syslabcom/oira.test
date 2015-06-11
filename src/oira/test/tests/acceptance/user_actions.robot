@@ -5,9 +5,9 @@ Resource          resource/common.robot
 Resource          resource/keywords.robot
 
 *** Test Case ***
-Register and delete User
+User can register and delete account
     [Documentation]    Register a new user and delete the account again
-    Click link "register"
+    Click link "Register"
     Register form should open
     Fill out and send register form
     Terms of conditions should open
@@ -17,7 +17,7 @@ Register and delete User
     Confirm delete account action
     Account should be deleted
 
-Change Password
+User can change password
     [Documentation]    Change Password of existing user
     Log in as user    ${USER_NAME}    ${USER_PASS}
     Open account settings
