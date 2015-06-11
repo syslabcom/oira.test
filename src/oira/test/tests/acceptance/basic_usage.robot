@@ -19,7 +19,12 @@ User can resume a session
      Then I start a new session  Leather & Tanning  My test session for resuming
       And I log out
      When I am logged in as a user in OiRA EU
-    Then I can select the existing session  My test session for resuming
+     Then I can select the existing session  My test session for resuming
+
+User can rename a session
+    Given I am logged in as a user in OiRA EU
+     Then I start a new session  Leather & Tanning  My test session for renaming
+
 
 *** Keywords ***
 I start a new session
@@ -31,7 +36,7 @@ I start a new session
     Wait until page contains    ${tool}
 
 I land on the preparation screen
-    Element should be visible     Element should be visible    xpath=//ol[@id="steps"]/li[@id="step-1" and @class="active"]
+    Element should be visible     xpath=//ol[@id="steps"]/li[@id="step-1" and @class="active"]
 
 I can select the existing session
     [arguments]    ${name}
