@@ -1,15 +1,18 @@
 *** Setting ***
-Test Setup        Open OiRA
-Test Teardown     Close Browser
+
+Resource  plone/app/robotframework/selenium.robot
+Resource  plone/app/robotframework/keywords.robot
 Resource          resource/common.robot
 Resource          resource/keywords.robot
+
+Test Setup        Prepare test browser
+Test Teardown     Close all browsers
 
 *** Test Case ***
 Log in
     [Documentation]    Log in with valid credentials.
     Set Test Message    Seems to work
     Go To    ${PROTOCOL}://${SERVER}/eu/login_form
-    Click Element  id=burger
     Wait Until Page Contains Element    id=login_name
     Input Text    __ac_name    ${USER_NAME}
     Input Text    __ac_password:utf8:ustring    ${USER_PASS}
@@ -19,7 +22,6 @@ Log in
 Log in fail
     [Documentation]    Log in fails when entering invalid credentials.
     Go To    ${PROTOCOL}://${SERVER}/eu/login_form
-    Click Element  id=burger
     Wait Until Page Contains Element    id=login_name
     Input Text    __ac_name    ${INVALID_USER_NAME}
     Input Text    __ac_password:utf8:ustring    ${INVALID_USER_PASS}
