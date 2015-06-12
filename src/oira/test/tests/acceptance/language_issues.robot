@@ -1,14 +1,19 @@
 *** Setting ***
-Test Setup        Open OiRA
-Test Teardown     Close Browser
-Resource          resource/common.robot
-Resource          resource/keywords.robot
+
+Resource  plone/app/robotframework/selenium.robot
+Resource  plone/app/robotframework/keywords.robot
+Resource  resource/common.robot
+Resource  resource/keywords.robot
+
+Test Setup        Prepare test browser
+Test Teardown     Close all browsers
 
 *** Test Case ***
 Language tests
     [Documentation]    testing of OiRA multiple European languages.
-    Go To    ${PROTOCOL}://${SERVER}/eu
-    Log in as user    ${USER_NAME}    ${USER_PASS}
+    [Tags]    fixme
+    Set Test Message    Translations need to be updated
+    Given I am logged in as a user in OiRA EU
     Go To    ${PROTOCOL}://${SERVER}/cy/hairdressers/cyprus_hairdressers_el
     Click Button    next
     Wait Until Page Contains    Βοήθεια
@@ -57,6 +62,8 @@ Language test /fr button-name
 
 Test /cy hairdressers button names
     [Documentation]    (support #6286 and #6266)
+    [Tags]    fixme
+    Set Test Message   Which session should it open?
     Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
     Go To    ${PROTOCOL}://${SERVER}/cy?set_language=el
@@ -73,10 +80,13 @@ Test /cy hairdressers button names
 
 Test /fr identification link
     [Documentation]    (support #6204) Test ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification
+    [Tags]    fixme
+    Set Test Message   The relevant session doesn't exist
     Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
     Go To    ${PROTOCOL}://${SERVER}/fr/?set_language=fr
     # Wait Until Element Is Visible    jquery=select.oira_sessions_select
+    Debug
     Select From List By Value    jquery=select.oira_sessions_select    transportroutier/transporoutier-2-parametres
     Sleep  5s
     Click Button    next
@@ -89,6 +99,8 @@ Test /fr identification link
 
 Test in /cy button settings
     [Documentation]    (support #4404) testing of /cy button settings
+    [Tags]    fixme
+    Set Test Message   Which session should it open?
     Go To    ${PROTOCOL}://${SERVER}/eu
     Log in as user    ${USER_NAME}    ${USER_PASS}
     Go To    ${PROTOCOL}://${SERVER}/cy/?set_language=el
@@ -129,7 +141,7 @@ Test help headings bg
     Wait Until Page Contains    Как Вие да извършите оценка на риска
     Wait Until Page Contains    Подготовка
     Wait Until Page Contains    Определяне
-    Wait Until Page Contains    Оценяване
+    Wait Until Page Contains    Оценка
     Wait Until Page Contains    План за действие
     Wait Until Page Contains    Доклад
     Wait Until Page Contains    Какво се случва след това?
@@ -143,7 +155,7 @@ Test help headings ca
     Wait Until Page Contains    Preparació
     Wait Until Page Contains    Identificació
     Wait Until Page Contains    Avaluació
-    Wait Until Page Contains    Pla d'acció
+    Wait Until Page Contains    Pla d’acció
     Wait Until Page Contains    Informe
     Wait Until Page Contains    Què passa després?
 
@@ -266,9 +278,9 @@ Test help headings sk
     Wait Until Page Contains    Stretnutia
     Wait Until Page Contains    Príprava
     Wait Until Page Contains    Identifikácia
-    Wait Until Page Contains    Vyhodnotenie
-    Wait Until Page Contains    Akčný plán
-    Wait Until Page Contains    Správa
+    Wait Until Page Contains    Hodnotenie
+    Wait Until Page Contains    Plán činnosti
+    Wait Until Page Contains    Spravodajstvo
     Wait Until Page Contains    Čo sa bude diať ďalej?
 
 Test help headings sl
