@@ -32,8 +32,68 @@ User can enter multiple locations in a profile
      When I traverse to the module    Commercial manned guarding
      Then The locations are visible in the navigation    ${LOCATION1}  ${LOCATION2}
 
+User can create an action plan
+    Given I am logged in as a user in OiRA EU
+     Then I can select an existing session   My tool session name
+     Then I can start an action plan module
+     Then I fill in a measure description  Assess the team members and assign someone
+     Then I fill in a prevention plan  Assess each person
+     Then I fill in the requirements  Three years experience
+     Then I fill in the responsible person  Anne Briggs
+     Then I save and continue
+
+User can create a report
+    Given I am logged in as a user in OiRA EU
+     Then I can select an existing session   My tool session name
+     Then I can prepare a report
+     Then I save and continue
+     Then I give some feedback
+     Then I save and continue
+     Then I can download the action plan
+
 
 *** Keywords ***
+
+I can prepare a report
+    Click Link  Report
+
+I can download the action plan
+    Wait Until Page Contains  Download the action plan
+
+I give some feedback
+    Select From List  form.widgets.country  Germany
+    Select Radio Button  form.widgets.employees  1-9
+
+I save and continue
+    Click Button  Save and continue
+
+I fill in a measure description
+    [arguments]    ${description}
+    Input Text  measure.action_plan:utf8:ustring:records  ${description}
+
+I fill in a prevention plan
+    [arguments]    ${prevention_plan}
+    Input Text  measure.prevention_plan:utf8:ustring:records  ${prevention_plan}
+
+I fill in the requirements
+    [arguments]    ${requirements}
+    Input Text  measure.requirements:utf8:ustring:records  ${requirements}
+
+I fill in the responsible person
+    [arguments]    ${responsible}
+    Input Text  measure.responsible:utf8:ustring:records  ${responsible}
+
+I continue
+    Click Link  Save and continue
+
+I can start an action plan module
+    Click Link  Action Plan
+    Click Link  Create action plan
+    Click Link  Start module
+
+I can select an existing session
+    [arguments]  ${session_name}
+    Click Element  xpath=//button[text()='${session_name}']
 
 I can enter two locations
     [arguments]    ${module}  ${location1}  ${location2}
