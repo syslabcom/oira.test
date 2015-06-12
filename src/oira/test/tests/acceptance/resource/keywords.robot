@@ -96,3 +96,11 @@ Verify new Password
 
 Reset Password        Open account settings
                       Change Password                     ${USER_PASS_NEW}                                                                                              ${USER_PASS}
+
+I start a new session
+    [arguments]    ${tool}   ${name}=My tool session name
+    Click link    start a new session
+    Select From List By Label    css=select.oira_sessions_select   ${tool}
+    Input text    title:utf8:ustring    ${name}
+    Click button    Start session
+    Wait until page contains    ${tool}
