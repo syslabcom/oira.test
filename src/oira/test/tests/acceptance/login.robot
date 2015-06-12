@@ -8,7 +8,8 @@ Resource          resource/keywords.robot
 Log in
     [Documentation]    Log in with valid credentials.
     Set Test Message    Seems to work
-    Go To    ${PROTOCOL}://${SERVER}/eu/@@login
+    Go To    ${PROTOCOL}://${SERVER}/eu/login_form
+    Click Element  id=burger
     Wait Until Page Contains Element    id=login_name
     Input Text    __ac_name    ${USER_NAME}
     Input Text    __ac_password:utf8:ustring    ${USER_PASS}
@@ -17,7 +18,8 @@ Log in
 
 Log in fail
     [Documentation]    Log in fails when entering invalid credentials.
-    Go To    ${PROTOCOL}://${SERVER}/eu/@@login
+    Go To    ${PROTOCOL}://${SERVER}/eu/login_form
+    Click Element  id=burger
     Wait Until Page Contains Element    id=login_name
     Input Text    __ac_name    ${INVALID_USER_NAME}
     Input Text    __ac_password:utf8:ustring    ${INVALID_USER_PASS}
