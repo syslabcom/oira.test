@@ -61,16 +61,15 @@ Terms of conditions should open
     Element Should Be Enabled    id=agree-button
 
 Accept terms of conditions
-    Click Button    id=agreeButton
-    Wait Until Page Contains Element    xpath=//a[text()='Settings']
+    Click Button    id=agree-button
+    Wait until page contains element   css=a.user-status
 
 Open account settings
-    Click Link    Settings
-    Wait Until Page Contains Element    xpath=//h1[text()='Account settings']
+    Click Link  css=a.user-status
+    Wait Until Page Contains    Delete account
 
 Click link "delete account"
     Click Link    Delete account
-    Debug
     Wait Until Page Contains Element    xpath=//h1[text()='Delete account']
 
 Confirm delete account action
@@ -87,10 +86,11 @@ User should be created
     Open account settings
 
 Change Password    [Arguments]    ${arg1}    ${arg2}
+    Click Link  Change password
     Input Text    form.widgets.old_password    ${arg1}
     Input Text    form.widgets.new_password    ${arg2}
     Input Text    form.widgets.new_password.confirm    ${arg2}
-    Click Button    xpath=//button[@value='Save changes']
+    Click Button    Save changes
     Wait Until Page Contains    Your password was successfully changed.
 
 Verify new Password
