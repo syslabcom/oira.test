@@ -20,6 +20,7 @@ Open OiRA EU and log in
 
 Try log in as user
     [Arguments]    ${arg1}=${USER_NAME}    ${arg2}=${USER_PASS}
+    Wait until page contains    Login
     Click Link    Login
     Wait until page contains    Email address
     Input Text    __ac_name    ${arg1}
