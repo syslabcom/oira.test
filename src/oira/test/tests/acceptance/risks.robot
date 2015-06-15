@@ -25,12 +25,14 @@ Leather and Tanning Session
      Then I can answer the risk as No    1.2
      When I navigate to risk    1.3
      Then I can supply the information to calculate the risk  1.3  1  4  5
+     Then I can add a custom risk  Beware of the cat  medium
      Then I can start an action plan module
      Then I fill in a measure description  Assess the team members and assign someone
      Then I fill in a prevention plan  Assess each person
      Then I fill in the requirements  Three years experience
      Then I fill in the responsible person  Jon Snow
      Then I save and continue
+     Then I can fill in the custom risk  By being very quiet
      Then I can prepare a report
      Then I save and continue
      Then I give some feedback
@@ -65,6 +67,23 @@ Private Security Session
      Then I can download the action plan
 
 *** Keywords ***
+I can fill in the custom risk
+    [arguments]  ${description}
+    Wait Until Page Contains Element  xpath=//div[@class='topics']
+    Click Element  xpath=(//div[@class='topics']//a)[last()]
+    Click Link  Start module
+    Input Text  measure.action_plan:utf8:ustring:records  ${description}
+    Click Button  Save and continue
+
+I can add a custom risk
+    [arguments]  ${description}  ${priority}
+    Click Element  xpath=(//div[@class='topics']//a)[last()]
+    Select Radio Button  skip_children:boolean  False
+    Click Button  Next
+    Input Text  risk.description:utf8:ustring:records  ${description}
+    Select From List  risk.priority:utf8:ustring:records  ${priority}
+    Click Button  Save and continue to action plan
+
 I can supply the information to calculate the risk
     [arguments]  ${risk_number}  ${probability}  ${frequency}  ${effect}
     Element should not be visible     xpath=//fieldset[@id='evaluation']
@@ -128,8 +147,8 @@ I can start an action plan module
 
 I can start a multi-location action plan module
     I can start an action plan module
-    Set Test Message  Why do we need to click [Start module] 3 times? Note: duplicate text "The next screens"
-    Click Link  Start module
+    Set Test Message  Note: duplicate text "The next screens ..."
+    Wait Until Page Contains Element  xpath=//li[contains(@class, 'submodule')]/ol
     Click Link  Start module
 
 I can select an existing session
