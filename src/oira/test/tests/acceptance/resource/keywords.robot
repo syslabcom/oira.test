@@ -85,7 +85,8 @@ Account should be deleted
 User should be created
     Open account settings
 
-Change Password    [Arguments]    ${arg1}    ${arg2}
+Change Password
+    [Arguments]    ${arg1}    ${arg2}
     Click Link  Change password
     Input Text    form.widgets.old_password    ${arg1}
     Input Text    form.widgets.new_password    ${arg2}
@@ -96,8 +97,10 @@ Change Password    [Arguments]    ${arg1}    ${arg2}
 Verify new Password
     Log in as user    ${USER_NAME}    ${USER_PASS_NEW}
 
-Reset Password    Open account settings
-    Change Password    ${USER_PASS_NEW}    ${USER_PASS}
+Reset Password
+    [Arguments]    ${arg1}    ${arg2}
+    Open account settings
+    Change Password    ${arg1}    ${arg2}
 
 I start a new session
     [arguments]    ${tool}   ${name}=My tool session name

@@ -25,10 +25,9 @@ User can register and delete account
 
 User can change password
     [Documentation]    Change Password of existing user
-    [Tags]    fixme
-    Set Test Message    No notification is shown after the password is changed
     Given I am logged in as a user in OiRA EU
     Open account settings
     Change Password    ${USER_PASS}    ${USER_PASS_NEW}
+    Then I log out
     Verify new Password
-    Reset Password
+    Reset Password    ${USER_PASS_NEW}    ${USER_PASS}
