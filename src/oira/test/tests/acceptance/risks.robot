@@ -15,44 +15,78 @@ ${LOCATION2}    Sunrise Avenue
 
 *** Test Case ***
 
-User can answer risks
+Leather and Tanning Session
     Given I am logged in as a user in OiRA EU
-     Then I start a new session  Leather & Tanning
+     Then I start a new session  Leather & Tanning  Leather & Tanning Session
       And I traverse to the identification phase
      When I navigate to risk    1.1
      Then I can answer the risk as Yes   1.1
      When I navigate to risk    1.2
      Then I can answer the risk as No    1.2
-
-User can enter multiple locations in a profile
-    Given I am logged in as a user in OiRA EU
-     Then I start a new session  Private Security EU    Private Security multiple locations
-      And I traverse to the profile screen
-     Then I can enter two locations    Commercial manned guarding  ${LOCATION1}  ${LOCATION2}
-     When I traverse to the module    Commercial manned guarding
-     Then The locations are visible in the navigation    ${LOCATION1}  ${LOCATION2}
-
-User can create an action plan
-    Given I am logged in as a user in OiRA EU
-     Then I can select an existing session   My tool session name
+     When I navigate to risk    1.3
+     Then I can supply the information to calculate the risk  1.3  1  4  5
      Then I can start an action plan module
      Then I fill in a measure description  Assess the team members and assign someone
      Then I fill in a prevention plan  Assess each person
      Then I fill in the requirements  Three years experience
-     Then I fill in the responsible person  Anne Briggs
+     Then I fill in the responsible person  Jon Snow
      Then I save and continue
-
-User can create a report
-    Given I am logged in as a user in OiRA EU
-     Then I can select an existing session   My tool session name
      Then I can prepare a report
      Then I save and continue
      Then I give some feedback
      Then I save and continue
      Then I can download the action plan
 
+Private Security Session
+    Given I am logged in as a user in OiRA EU
+     Then I start a new session  Private Security EU    Private Security multiple locations
+      And I traverse to the profile screen
+     Then I can enter two locations    Commercial manned guarding  ${LOCATION1}  ${LOCATION2}
+     When I traverse to the module    Commercial manned guarding
+     Then The locations are visible in the navigation    ${LOCATION1}  ${LOCATION2}
+     When I navigate to submodule    2.2.3
+     When I navigate to risk    2.2.3.1
+     Then I can answer the risk as No    2.2.3.1
+     When I navigate to risk    2.2.3.2
+     Then I can answer the risk as No    2.2.3.2
+     Then I can start a multi-location action plan module
+     Then I fill in a measure description  Assess the team members and assign someone
+     Then I fill in a prevention plan  Assess each person
+     Then I fill in the requirements  Three years experience
+     Then I fill in the responsible person  Cersei Lannister
+     Then I add a custom Measure
+     Then I use a Pre-fill for the Measure
+     Then I save and continue
+     Then I can remove an existing measure  Measure 2
+     Then I can prepare a report
+     Then I save and continue
+     Then I give some feedback
+     Then I save and continue
+     Then I can download the action plan
 
 *** Keywords ***
+I can supply the information to calculate the risk
+    [arguments]  ${risk_number}  ${probability}  ${frequency}  ${effect}
+    Element should not be visible     xpath=//fieldset[@id='evaluation']
+    Click element    xpath=//fieldset[contains(@class, "pat-checklist radio")]/label[contains(text(), "No")]
+    Wait until element is visible     xpath=//fieldset[@id='evaluation']
+    Select Radio Button  probability:int  ${probability}
+    Select Radio Button  frequency:int  ${frequency}
+    Select Radio Button  effect:int  ${effect}
+    Click button    Save and continue
+    Wait until element is visible  xpath=//ol[@class='navigation questions']//li[@class='answered risk ' and contains(@title, '${risk_number}')]
+
+I can remove an existing measure
+    [arguments]  ${measure_name}
+    Click Button  Previous
+    Click Link  xpath=//h2[.='${measure_name}']/following-sibling::*//a[.='Remove']
+
+I add a custom Measure
+    Click Button  Add another measure
+
+I use a Pre-fill for the Measure
+    Click Element  xpath=(//a[.='Pre-fill'])[2]
+    Click Element  xpath=(//ol[@class='add-measure-menu']/li/a)[last()]
 
 I can prepare a report
     Click Link  Report
@@ -89,6 +123,13 @@ I continue
 I can start an action plan module
     Click Link  Action Plan
     Click Link  Create action plan
+    Wait Until Page Contains Element  link=Start module
+    Click Link  Start module
+
+I can start a multi-location action plan module
+    I can start an action plan module
+    Set Test Message  Why do we need to click [Start module] 3 times? Note: duplicate text "The next screens"
+    Click Link  Start module
     Click Link  Start module
 
 I can select an existing session
@@ -129,6 +170,9 @@ I navigate to risk
     Click element  xpath=//ol[@class='navigation questions']//a/strong[.='${risk_number}']
     Wait until page contains element   xpath=//fieldset[@id="${risk_number}"]  2
 
+I navigate to submodule
+    [arguments]  ${risk_number}
+    Click element  xpath=//li[contains(@class, 'submodule')]/a/strong[.='${risk_number}']
 
 I can answer the risk as Yes
     [arguments]   ${risk_number}
