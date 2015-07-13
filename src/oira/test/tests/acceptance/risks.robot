@@ -23,8 +23,11 @@ Leather and Tanning Session
      Then I can answer the risk as Yes   1.1
      When I navigate to risk    1.2
      Then I can answer the risk as No    1.2
-     When I navigate to risk    1.3
-     Then I can supply the information to calculate the risk  1.3  1  4  5
+     When I navigate to risk    1.4
+     # Commented out, since the following call assumes the evaluation is being _calculated_
+     # However, this OiRA tool only has risks that get _estimated_
+     # Then I can supply the information to calculate the risk  1.3  1  4  5
+      And I can supply the information for directly estimating the risk   1.4  medium
      Then I can add a custom risk  Beware of the cat  medium
      Then I can start an action plan module
      Then I fill in a measure description  Assess the team members and assign someone
@@ -94,6 +97,16 @@ I can supply the information to calculate the risk
     Select Radio Button  effect:int  ${effect}
     Click button    Save and continue
     Wait until element is visible  xpath=//ol[@class='navigation questions']//li[@class='answered risk ' and contains(@title, '${risk_number}')]
+
+I can supply the information for directly estimating the risk
+    [arguments]  ${risk_number}  ${priority}
+    Element should not be visible     xpath=//fieldset[@id='evaluation']
+    Click element    xpath=//fieldset[contains(@class, "pat-checklist radio")]/label[contains(text(), "No")]
+    Wait until element is visible     xpath=//fieldset[@id='evaluation']
+    Select Radio Button  priority  ${priority}
+    Click button    Save and continue
+    Wait until element is visible  xpath=//ol[@class='navigation questions']//li[@class='answered risk ' and contains(@title, '${risk_number}')]
+
 
 I can remove an existing measure
     [arguments]  ${measure_name}
@@ -165,6 +178,7 @@ I can enter two locations
     Click button    Add another item
     Input text   xpath=//form//h2[contains(text(), "${module}")]/../fieldset[contains(@class, 'group')]/fieldset[contains(@class, 'pat-clone')]/label[@class='clone']/following-sibling::label/input  ${location2}
     Click button    Save and continue
+    Wait until page contains element    xpath=//li[@id="step-2" and @class="active"]
 
 I traverse to the module
     [arguments]     ${module}
