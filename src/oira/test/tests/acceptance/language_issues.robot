@@ -60,65 +60,6 @@ Language test /fr button-name
     Confirm delete account action
     Account should be deleted
 
-Test /cy hairdressers button names
-    [Documentation]    (support #6286 and #6266)
-    [Tags]    fixme
-    Set Test Message   Which session should it open?
-    Go To    ${PROTOCOL}://${SERVER}/eu
-    Log in as user    ${USER_NAME}    ${USER_PASS}
-    Go To    ${PROTOCOL}://${SERVER}/cy?set_language=el
-    Click Button    next
-    Sleep  5s
-    Submit Form
-    Sleep  5s
-    Submit Form
-    Click Link    Έκθεση
-    Click Button    next
-    Location Should Contain    /report/company
-    Wait Until Page Contains    Παράκαμψη βήματος
-    Wait Until Page Contains    Αποθήκευση
-
-Test /fr identification link
-    [Documentation]    (support #6204) Test ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification
-    [Tags]    fixme
-    Set Test Message   The relevant session doesn't exist
-    Go To    ${PROTOCOL}://${SERVER}/eu
-    Log in as user    ${USER_NAME}    ${USER_PASS}
-    Go To    ${PROTOCOL}://${SERVER}/fr/?set_language=fr
-    # Wait Until Element Is Visible    jquery=select.oira_sessions_select
-    Debug
-    Select From List By Value    jquery=select.oira_sessions_select    transportroutier/transporoutier-2-parametres
-    Sleep  5s
-    Click Button    next
-    Sleep  5s
-    Submit Form
-    Sleep  5s
-    Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres/identification
-    Sleep  5s
-    Click Link    link=liste de tous les risques
-
-Test in /cy button settings
-    [Documentation]    (support #4404) testing of /cy button settings
-    [Tags]    fixme
-    Set Test Message   Which session should it open?
-    Go To    ${PROTOCOL}://${SERVER}/eu
-    Log in as user    ${USER_NAME}    ${USER_PASS}
-    Go To    ${PROTOCOL}://${SERVER}/cy/?set_language=el
-    Click Button    next
-    Submit Form
-    Go To    ${PROTOCOL}://${SERVER}/cy/civil-service/demosia-dioikese
-    Sleep  5s
-    Click Button    next
-    Sleep  5s
-    Submit Form
-    Location Should Be    ${PROTOCOL}://${SERVER}/cy/civil-service/demosia-dioikese/identification
-    Wait Until Page Contains    Ρυθμίσεις
-    Wait Until Page Contains    Κατάσταση
-    Click Link    Κατάσταση
-    Location Should Be    ${PROTOCOL}://${SERVER}/cy/civil-service/demosia-dioikese/status
-    Click Link    Ρυθμίσεις
-    Location Should Be    ${PROTOCOL}://${SERVER}/cy/account-settings
-
 Test help headings en
     [Documentation]    (support #5648, #5170)
     Go To    ${PROTOCOL}://${SERVER}/eu/help?set_language=en
