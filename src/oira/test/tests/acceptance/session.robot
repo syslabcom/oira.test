@@ -35,7 +35,6 @@ User can delete a session
 
 
 *** Keywords ***
-
 I land on the preparation screen
     Element should be visible     xpath=//ol[@id="steps"]/li[@id="step-1" and @class="active"]
 
@@ -43,24 +42,12 @@ I can select the existing session
     [arguments]    ${name}
     Wait until page contains    ${name}
 
-I open the sessions dropdown
-    Click link  xpath=//a[@id='button-sessions']
-
-I can delete the session
-    [arguments]    ${session_name}
-    Click link  xpath=//button[contains(text(), '${session_name}')]/../../following-sibling::td[contains(@class, 'actions')]/a[contains(@class, 'icon-trash')]
-    Wait until page contains    You are about to delete the session `${session_name}`.
-    Click Button    Yes, delete session
-    # missing: delete confirmation
-    Wait until page contains    Select an earlier session to complete or review  2
-
 I can rename the session
     [arguments]    ${old_name}  ${new_name}
+    Wait until element is visible    xpath=//button[contains(text(), '${old_name}')]/../../following-sibling::td[contains(@class, 'actions')]/a[contains(@class, 'icon-pencil')]
     Click link  xpath=//button[contains(text(), '${old_name}')]/../../following-sibling::td[contains(@class, 'actions')]/a[contains(@class, 'icon-pencil')]
-    Wait until page contains    Rename session
+    Wait until element is visible    xpath=//form[contains(@action, "rename-session")]
     Element should be visible    xpath=//input[@value="${old_name}"]
     Input text    form.widgets.title    ${new_name}
     Click button    Save changes
-    # missing: rename confirmation
-    Wait until page contains    Select an earlier session to complete or review  2
-    Element should be visible    xpath=//form[@class="startSessionForm"]/button[contains(text(), "${new_name}")]
+    Wait Until Page Contains    Session title has been changed to ${new_name}
