@@ -5,9 +5,10 @@ Prepare test browser
 
 Open OiRA
     Open Browser    http://${SERVER}    ${BROWSER}
-    # Set Selenium Speed    1 second
+    #Set Selenium Speed    3 second
 
 Open OiRA EU
+    #Set Selenium Speed    .3 seconds
     Go To    http://${SERVER}/eu/
 
 I am logged in as a user in OiRA EU
@@ -109,3 +110,15 @@ I start a new session
     Input text    title:utf8:ustring    ${name}
     Click button    Start session
     Wait until page contains    ${tool}
+
+I open the sessions dropdown
+    Element should be visible    id=button-sessions
+    Click link  xpath=//a[@id='button-sessions']
+
+I can delete the session
+    [arguments]    ${session_name}
+    Wait until element is visible    xpath=//button[contains(text(), '${session_name}')]/../../following-sibling::td[contains(@class, 'actions')]/a[contains(@class, 'icon-trash')]
+    Click element    xpath=//button[contains(text(), '${session_name}')]/../../following-sibling::td[contains(@class, 'actions')]/a[contains(@class, 'icon-trash')]
+    Wait until element is visible    xpath=//form[contains(@action, "delete-session")]/div/button[@type="submit"]
+    Click button    Yes, delete session
+    Wait Until Page Contains    Session `${session_name}` has been deleted.
