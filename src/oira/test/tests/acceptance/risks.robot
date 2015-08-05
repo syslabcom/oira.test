@@ -90,7 +90,7 @@ I can add a custom risk
     Click Button  Next
     Wait until element is visible    id=description-1
     Input Text  risk.description:utf8:ustring:records  ${description}
-    Select From List  risk.priority:utf8:ustring:records
+    Select From List  risk.priority:utf8:ustring:records  ${priority}
     Click Button  Save and continue
 
 I can supply the information to calculate the risk
@@ -114,11 +114,11 @@ I can supply the information for directly estimating the risk
     Wait until element is visible  xpath=//ol[@class='navigation questions']//li[@class='answered risk ' and contains(@title, '${risk_number}')]
 
 I can remove an existing measure
-    [arguments]  ${measure_name} 
+    [arguments]  ${measure_name}
     Click Button  Previous
     Wait until page contains element  xpath=//h2[.='${measure_name}']/following-sibling::*//a[contains(@class, 'icon-trash')]
     Click Link  xpath=//h2[.='${measure_name}']/following-sibling::*//a[contains(@class, 'icon-trash')]
-    
+
 I add a custom Measure
     Click Button  Add another measure
 
