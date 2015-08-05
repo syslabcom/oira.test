@@ -24,9 +24,9 @@ Leather and Tanning Session
      When I navigate to risk    1.2
      Then I can answer the risk as No    1.2
      When I navigate to risk    1.4
-     # Commented out, since the following call assumes the evaluation is being _calculated_
-     # However, this OiRA tool only has risks that get _estimated_
-     # Then I can supply the information to calculate the risk  1.3  1  4  5
+     # ## Commented out, since the following call assumes the evaluation is being _calculated_
+     # ## However, this OiRA tool only has risks that get _estimated_
+     # ## Then I can supply the information to calculate the risk  1.3  1  4  5
       And I can supply the information for directly estimating the risk   1.4  medium
      Then I can add a custom risk  Beware of the cat  medium
      Then I can start an action plan module
@@ -41,6 +41,8 @@ Leather and Tanning Session
      Then I give some feedback
      Then I save and continue
      Then I can download the action plan
+     When I open the sessions dropdown
+     Then I can delete the session    Leather & Tanning Session
 
 Private Security Session
     Given I am logged in as a user in OiRA EU
@@ -68,13 +70,16 @@ Private Security Session
      Then I give some feedback
      Then I save and continue
      Then I can download the action plan
+     When I open the sessions dropdown
+     Then I can delete the session    Private Security multiple locations
 
 *** Keywords ***
 I can fill in the custom risk
     [arguments]  ${description}
-    Wait Until Page Contains Element  xpath=//div[@class='topics']
-    Click Element  xpath=(//div[@class='topics']//a)[last()]
-    Click Link  Start module
+    Wait Until Page Contains Element  xpath=(//div[@class='topics']/ol/li[contains(@class, 'None')]/a)[last()]
+    Click Element  xpath=(//div[@class='topics']/ol/li[contains(@class, 'None')]/a)[last()]
+    Click Link  Next
+    Wait Until Element is visible  xpath=//textarea[@name="measure.action_plan:utf8:ustring:records"]
     Input Text  measure.action_plan:utf8:ustring:records  ${description}
     Click Button  Save and continue
 
@@ -83,9 +88,10 @@ I can add a custom risk
     Click Element  xpath=(//div[@class='topics']//a)[last()]
     Select Radio Button  skip_children:boolean  False
     Click Button  Next
+    Wait until element is visible    id=description-1
     Input Text  risk.description:utf8:ustring:records  ${description}
-    Select From List  risk.priority:utf8:ustring:records  ${priority}
-    Click Button  Save and continue to action plan
+    Select From List  risk.priority:utf8:ustring:records
+    Click Button  Save and continue
 
 I can supply the information to calculate the risk
     [arguments]  ${risk_number}  ${probability}  ${frequency}  ${effect}
@@ -107,12 +113,12 @@ I can supply the information for directly estimating the risk
     Click button    Save and continue
     Wait until element is visible  xpath=//ol[@class='navigation questions']//li[@class='answered risk ' and contains(@title, '${risk_number}')]
 
-
 I can remove an existing measure
-    [arguments]  ${measure_name}
+    [arguments]  ${measure_name} 
     Click Button  Previous
-    Click Link  xpath=//h2[.='${measure_name}']/following-sibling::*//a[.='Remove']
-
+    Wait until page contains element  xpath=//h2[.='${measure_name}']/following-sibling::*//a[contains(@class, 'icon-trash')]
+    Click Link  xpath=//h2[.='${measure_name}']/following-sibling::*//a[contains(@class, 'icon-trash')]
+    
 I add a custom Measure
     Click Button  Add another measure
 
@@ -154,15 +160,16 @@ I continue
 
 I can start an action plan module
     Click Link  Action Plan
+    Wait Until Page Contains Element  link=Action Plan
     Click Link  Create action plan
-    Wait Until Page Contains Element  link=Start module
-    Click Link  Start module
+    Wait Until Page Contains Element  link=Next
+    Click Link  Next
 
 I can start a multi-location action plan module
     I can start an action plan module
     Set Test Message  Note: duplicate text "The next screens ..."
     Wait Until Page Contains Element  xpath=//li[contains(@class, 'submodule')]/ol
-    Click Link  Start module
+    Click Link  Next
 
 I can select an existing session
     [arguments]  ${session_name}
@@ -209,12 +216,14 @@ I navigate to submodule
 
 I can answer the risk as Yes
     [arguments]   ${risk_number}
+    Wait until element is visible    xpath=//fieldset[contains(@class, "pat-checklist radio")]/label[contains(text(), "Yes")]
     Click element    xpath=//fieldset[contains(@class, "pat-checklist radio")]/label[contains(text(), "Yes")]
     Click button    Save and continue
     Wait until element is visible  xpath=//ol[@class='navigation questions']//li[@class='answered ' and contains(@title, '${risk_number}')]
 
 I can answer the risk as No
     [arguments]   ${risk_number}
+    Wait until page contains element    xpath=//fieldset[@id='evaluation']
     Element should not be visible     xpath=//fieldset[@id='evaluation']
     Click element    xpath=//fieldset[contains(@class, "pat-checklist radio")]/label[contains(text(), "No")]
     Wait until element is visible     xpath=//fieldset[@id='evaluation']
