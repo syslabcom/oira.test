@@ -9,9 +9,8 @@ Test Setup        Prepare test browser
 Test Teardown     Close all browsers
 
 *** Test Case ***
-Language tests
+General Language tests
     [Documentation]    testing of OiRA multiple European languages.
-    [Tags]    fixme
     Set Test Message    Translations need to be updated
     Given I am logged in as a user in OiRA EU
     Go To    ${PROTOCOL}://${SERVER}/cy/hairdressers/cyprus_hairdressers_el
