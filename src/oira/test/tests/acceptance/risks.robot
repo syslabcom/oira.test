@@ -78,7 +78,7 @@ I can fill in the custom risk
     [arguments]  ${description}
     Wait Until Page Contains Element  xpath=(//div[@class='topics']/ol/li[contains(@class, 'None')]/a)[last()]
     Click Element  xpath=(//div[@class='topics']/ol/li[contains(@class, 'None')]/a)[last()]
-    Click Link  Next
+    Sleep  1
     Wait Until Element is visible  xpath=//textarea[@name="measure.action_plan:utf8:ustring:records"]
     Input Text  measure.action_plan:utf8:ustring:records  ${description}
     Click Button  Save and continue
