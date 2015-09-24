@@ -24,9 +24,6 @@ Leather and Tanning Session
      When I navigate to risk    1.2
      Then I can answer the risk as No    1.2
      When I navigate to risk    1.4
-     # ## Commented out, since the following call assumes the evaluation is being _calculated_
-     # ## However, this OiRA tool only has risks that get _estimated_
-     # ## Then I can supply the information to calculate the risk  1.3  1  4  5
       And I can supply the information for directly estimating the risk   1.4  medium
      Then I can add a custom risk  Beware of the cat  medium
      Then I can start an action plan module
