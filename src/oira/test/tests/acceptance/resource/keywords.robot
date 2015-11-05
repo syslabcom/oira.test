@@ -36,6 +36,7 @@ Log in as user
 I log out
     [Arguments]    ${loginname}=${USER_NAME}
     Click link    ${loginname}
+    Wait until element is visible    css=a.icon-logout
     Click link    Logout
     Wait until page contains    Welcome
 
