@@ -220,6 +220,7 @@ I can answer the risk as Yes
 
 I can answer the risk as No
     [arguments]   ${risk_number}
+    Sleep  1
     Wait until page contains element    xpath=//fieldset[@id="${risk_number}"]/../fieldset[@id='evaluation']
     Element should not be visible     xpath=//fieldset[@id='evaluation']
     Click element    xpath=//fieldset[contains(@class, "pat-checklist radio")]/label[contains(text(), "No")]
