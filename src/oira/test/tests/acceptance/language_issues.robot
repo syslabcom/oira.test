@@ -78,7 +78,7 @@ Test help headings bg
     Wait Until Page Contains    Помощ
     Wait Until Page Contains    Въведение
     Wait Until Page Contains    Регистрация
-    Wait Until Page Contains    Как Вие да извършите оценка на риска
+    Wait Until Page Contains    Как да извършите оценка на риска
     Wait Until Page Contains    Подготовка
     Wait Until Page Contains    Определяне
     Wait Until Page Contains    Оценка
