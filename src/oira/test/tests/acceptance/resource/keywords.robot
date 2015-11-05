@@ -95,6 +95,7 @@ Change Password
     Input Text    form.widgets.new_password.confirm    ${arg2}
     Click Button    Save changes
     Wait Until Page Contains    Your password was successfully changed.
+    Click Button   Close
 
 Verify new Password
     Log in as user    ${USER_NAME}    ${USER_PASS_NEW}
