@@ -2,8 +2,13 @@
 bin/
 include/
 lib/
+develop-eggs/
+eggs/
+local/
+parts/
 log.html
 output.xml
 report.html
 secrets.rst
 selenium-screenshot*
+secrets.robot
