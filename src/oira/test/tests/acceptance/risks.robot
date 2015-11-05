@@ -205,7 +205,7 @@ I traverse to the profile screen
 I navigate to risk
     [arguments]  ${risk_number}
     Click element  xpath=//ol[@class='navigation questions']//a/strong[.='${risk_number}']
-    Wait until page contains element   xpath=//fieldset[@id="${risk_number}"]  2
+    Wait until element is visible   xpath=//fieldset[@id="${risk_number}"]  2
 
 I navigate to submodule
     [arguments]  ${risk_number}
@@ -220,7 +220,7 @@ I can answer the risk as Yes
 
 I can answer the risk as No
     [arguments]   ${risk_number}
-    Wait until page contains element    xpath=//fieldset[@id='evaluation']
+    Wait until page contains element    xpath=//fieldset[@id="${risk_number}"]/../fieldset[@id='evaluation']
     Element should not be visible     xpath=//fieldset[@id='evaluation']
     Click element    xpath=//fieldset[contains(@class, "pat-checklist radio")]/label[contains(text(), "No")]
     Wait until element is visible     xpath=//fieldset[@id='evaluation']
