@@ -190,7 +190,7 @@ Test help headings nl-be
     # Wait Until Page Contains    ? (Help in nl-be)    ? (Help in nl-be)
     Wait Until Page Contains    Inleiding
     Wait Until Page Contains    Registratie
-    Wait Until Page Contains    Sessie
+    Wait Until Page Contains    Uw risicoanalyse uitvoeren
     Wait Until Page Contains    Voorbereiding
     Wait Until Page Contains    Identificatie
     Wait Until Page Contains    Evaluatie
