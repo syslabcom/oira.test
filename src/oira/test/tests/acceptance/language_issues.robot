@@ -147,7 +147,7 @@ Test help headings es
     Wait Until Page Contains    Evaluación
     Wait Until Page Contains    Plan de Acción
     Wait Until Page Contains    Informe
-    Wait Until Page Contains    ¿Que pasa después?
+    Wait Until Page Contains    ¿Qué pasa después?
 
 Test help headings fr
     Go To    ${PROTOCOL}://${SERVER}/fr/help?set_language=fr
