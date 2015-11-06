@@ -141,7 +141,7 @@ Test help headings es
     Go To    ${PROTOCOL}://${SERVER}/es/help?set_language=es
     Wait Until Page Contains    Introducción
     Wait Until Page Contains    Registro
-    Wait Until Page Contains    Realización de la evaluación de riesgos
+    Wait Until Page Contains    Sesiones
     Wait Until Page Contains    Preparación
     Wait Until Page Contains    Identificación
     Wait Until Page Contains    Evaluación
