@@ -27,6 +27,8 @@ Try log in as user
     Input Text    __ac_name    ${arg1}
     Input Text    __ac_password:utf8:ustring    ${arg2}
     Click Button    Login
+    # Note: if the "Splash message" gets removed, the following line must go too
+    Click element  css=hr.trigger.pat-switch
 
 Log in as user
     [Arguments]    ${arg1}=${USER_NAME}    ${arg2}=${USER_PASS}
