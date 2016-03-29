@@ -15,6 +15,10 @@ I am logged in as a user in OiRA EU
     Open OiRA EU
     Log in as user
 
+I am logged in as a user in OiRA EU again
+    Open OiRA EU
+    Log in as user again
+
 Open OiRA EU and log in
     Open OiRA EU
     Log in as user
@@ -27,10 +31,16 @@ Try log in as user
     Input Text    __ac_name    ${arg1}
     Input Text    __ac_password:utf8:ustring    ${arg2}
     Click Button    Login
-    # Note: if the "Splash message" gets removed, the following line must go too
-    Click element  css=hr.trigger.pat-switch
 
 Log in as user
+    [Arguments]    ${arg1}=${USER_NAME}    ${arg2}=${USER_PASS}
+    Try log in as user    ${arg1}    ${arg2}
+    # Note: if the "Splash message" gets removed, the following line must go too
+    Wait until element is visible  css=hr.trigger.pat-switch  2
+    Click element  css=hr.trigger.pat-switch
+    Wait until page contains element   css=a.user-status
+
+Log in as user again
     [Arguments]    ${arg1}=${USER_NAME}    ${arg2}=${USER_PASS}
     Try log in as user    ${arg1}    ${arg2}
     Wait until page contains element   css=a.user-status
@@ -67,6 +77,9 @@ Terms of conditions should open
 
 Accept terms of conditions
     Click Button    id=agree-button
+    # Note: if the "Splash message" gets removed, the following line must go too
+    Wait until element is visible  css=hr.trigger.pat-switch  2
+    Click element  css=hr.trigger.pat-switch
     Wait until page contains element   css=a.user-status
 
 Open account settings
@@ -101,7 +114,7 @@ Change Password
     Click Button   Close
 
 Verify new Password
-    Log in as user    ${USER_NAME}    ${USER_PASS_NEW}
+    Log in as user again   ${USER_NAME}    ${USER_PASS_NEW}
 
 Reset Password
     [Arguments]    ${arg1}    ${arg2}

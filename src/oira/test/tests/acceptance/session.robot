@@ -18,7 +18,7 @@ User can resume a session
     Given I am logged in as a user in OiRA EU
      Then I start a new session  Leather & Tanning    My test session for resuming
       And I log out
-     When I am logged in as a user in OiRA EU
+     When I am logged in as a user in OiRA EU again
      Then I can select the existing session    My test session for resuming
 
 User can rename a session

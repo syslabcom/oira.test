@@ -28,6 +28,9 @@ General Language tests
     Wait Until Page Contains    Σχετικά
     Go To    ${PROTOCOL}://${SERVER}
     Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres
+    # Note: if the "Splash message" gets removed, the following line must go too
+    Wait until element is visible  css=hr.trigger.pat-switch
+    Click element  css=hr.trigger.pat-switch
     Click Button    next
     Wait Until Page Contains    Aide
     Wait Until Page Contains    Estimation
@@ -35,6 +38,9 @@ General Language tests
     Wait Until Page Contains    L'évaluation des risques professionnels (EvRP)
     Go To    ${PROTOCOL}://${SERVER}
     Go To    ${PROTOCOL}://${SERVER}/eu/leather-tanning/leather-tanning-draft-risk-assessment-tool
+    # Note: if the "Splash message" gets removed, the following line must go too
+    Wait until element is visible  css=hr.trigger.pat-switch
+    Click element  css=hr.trigger.pat-switch
     Click Button    next
     Wait Until Page Contains    Help
     Wait Until Page Contains    Evaluation
@@ -51,11 +57,11 @@ Language test /fr button-name
     Fill out and send register form
     Terms of conditions should open
     Wait Until Page Contains    Agree and continue
+    Accept terms of conditions
     Go To    ${PROTOCOL}://${SERVER}/terms-and-conditions?set_language=fr
     Terms of conditions should open
     Wait Until Page Contains    Accepter et continuer
-    Go To    ${PROTOCOL}://${SERVER}/eu/account-settings?set_language=en
-    Go To    ${PROTOCOL}://${SERVER}/eu/account-delete
+    Go To    ${PROTOCOL}://${SERVER}/eu/account-delete?set_language=en
     Confirm delete account action
     Account should be deleted
 
