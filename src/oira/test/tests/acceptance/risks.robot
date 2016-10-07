@@ -125,6 +125,8 @@ I use a Pre-fill for the Measure
 
 I can prepare a report
     Click Link  Report
+    Wait until page contains element  xpath=//li[@id="step-5" and @class="active"]
+
 
 I can download the action plan
     Wait Until Page Contains  Download the action plan
