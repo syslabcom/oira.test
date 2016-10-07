@@ -36,8 +36,8 @@ Log in as user
     [Arguments]    ${arg1}=${USER_NAME}    ${arg2}=${USER_PASS}
     Try log in as user    ${arg1}    ${arg2}
     # Note: if the "Splash message" gets removed, the following line must go too
-    Wait until element is visible  css=hr.trigger.pat-switch  2
-    Click element  css=hr.trigger.pat-switch
+    # Wait until element is visible  css=hr.trigger.pat-switch  2
+    # Click element  css=hr.trigger.pat-switch
     Wait until page contains element   css=a.user-status
 
 Log in as user again
@@ -78,8 +78,8 @@ Terms of conditions should open
 Accept terms of conditions
     Click Button    id=agree-button
     # Note: if the "Splash message" gets removed, the following line must go too
-    Wait until element is visible  css=hr.trigger.pat-switch  2
-    Click element  css=hr.trigger.pat-switch
+    # Wait until element is visible  css=hr.trigger.pat-switch  2
+    # Click element  css=hr.trigger.pat-switch
     Wait until page contains element   css=a.user-status
 
 Open account settings

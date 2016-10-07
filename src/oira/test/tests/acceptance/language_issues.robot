@@ -29,8 +29,8 @@ General Language tests
     Go To    ${PROTOCOL}://${SERVER}
     Go To    ${PROTOCOL}://${SERVER}/fr/transportroutier/transporoutier-2-parametres
     # Note: if the "Splash message" gets removed, the following line must go too
-    Wait until element is visible  css=hr.trigger.pat-switch
-    Click element  css=hr.trigger.pat-switch
+    # Wait until element is visible  css=hr.trigger.pat-switch
+    # Click element  css=hr.trigger.pat-switch
     Click Button    next
     Wait Until Page Contains    Aide
     Wait Until Page Contains    Estimation
@@ -39,8 +39,8 @@ General Language tests
     Go To    ${PROTOCOL}://${SERVER}
     Go To    ${PROTOCOL}://${SERVER}/eu/leather-tanning/leather-tanning-draft-risk-assessment-tool
     # Note: if the "Splash message" gets removed, the following line must go too
-    Wait until element is visible  css=hr.trigger.pat-switch
-    Click element  css=hr.trigger.pat-switch
+    # Wait until element is visible  css=hr.trigger.pat-switch
+    # Click element  css=hr.trigger.pat-switch
     Click Button    next
     Wait Until Page Contains    Help
     Wait Until Page Contains    Evaluation
@@ -122,14 +122,14 @@ Test help headings de
     Go To    ${PROTOCOL}://${SERVER}/de/help?set_language=de
     Wait Until Page Contains    Hilfe
     Wait Until Page Contains    Einführung
-    Wait Until Page Contains    Authentifizierung
+    Wait Until Page Contains    Registrierung
     Wait Until Page Contains    Sitzungen
     Wait Until Page Contains    Vorbereitung
     Wait Until Page Contains    Ermittlung
     Wait Until Page Contains    Bewertung
     Wait Until Page Contains    Aktionsplan
     Wait Until Page Contains    Bericht
-    Wait Until Page Contains    Eine Bemerkung zum Schluss
+    Wait Until Page Contains    Was geschieht als nächstes?
 
 Test help headings el
     Go To    ${PROTOCOL}://${SERVER}/cy/help?set_language=el
@@ -242,15 +242,16 @@ Test help headings sl
     Wait Until Page Contains    Poročilo
     Wait Until Page Contains    Kako naprej?
 
-Test help headings sv
-    Go To    ${PROTOCOL}://${SERVER}/se/help?set_language=sv
-    Wait Until Page Contains    Hjälp
-    Wait Until Page Contains    Introduktion
-    Wait Until Page Contains    Autentisering
-    Wait Until Page Contains    OiRA-verktyg
-    Wait Until Page Contains    Förberedning
-    Wait Until Page Contains    Identifiering
-    Wait Until Page Contains    Utvärdering
-    Wait Until Page Contains    Handlingsplan
-    Wait Until Page Contains    Rapport
-    Wait Until Page Contains    Slutord
+# SV Swedish is not supported
+# Test help headings sv
+#     Go To    ${PROTOCOL}://${SERVER}/se/help?set_language=sv
+#     Wait Until Page Contains    Hjälp
+#     Wait Until Page Contains    Introduktion
+#     Wait Until Page Contains    Autentisering
+#     Wait Until Page Contains    OiRA-verktyg
+#     Wait Until Page Contains    Förberedning
+#     Wait Until Page Contains    Identifiering
+#     Wait Until Page Contains    Utvärdering
+#     Wait Until Page Contains    Handlingsplan
+#     Wait Until Page Contains    Rapport
+#     Wait Until Page Contains    Slutord
